@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.265"
+    ComputedModelVersion    "1.271"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -41,7 +41,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-7.0, 0.0, 733.0, 927.0]
+      Location		      [-7.0, -7.0, 1455.0, 935.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -65,9 +65,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1026.0, 1140.0]
+	Extents			[2108.0, 1152.0]
 	ZoomFactor		[0.79999999999999993]
-	Offset			[825.21879632857326, 141.99326798873548]
+	Offset			[909.34326279017864, 13.268733628221288]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -87,11 +87,11 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACOAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAQ2AAAEwAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAhwAAAEzAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACp/////wAAAAAAAAAA/////wEAAAEu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAHX/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAO0/////wAAAAAAAAAA/"
-      "////wEAAAP1/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAQl/////wAAAAAAAAAA/"
+      "////wEAAARm/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   CheckForProblematicBlocks "on"
@@ -101,9 +101,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Jason"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 29 12:45:34 2018"
-  RTWModifiedTimeStamp	  449498731
-  ModelVersionFormat	  "1.%<AutoIncrement:265>"
+  LastModifiedDate	  "Tue May 29 15:50:39 2018"
+  RTWModifiedTimeStamp	  449509836
+  ModelVersionFormat	  "1.%<AutoIncrement:271>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1143,6 +1143,10 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      Derivative
+      CoefficientInTFapproximation "inf"
+    }
+    Block {
       BlockType		      Display
       Format		      "short"
       Decimation	      "10"
@@ -1413,14 +1417,6 @@ Model {
       BlockType		      Terminator
     }
     Block {
-      BlockType		      ToFile
-      Filename		      "untitled.mat"
-      MatrixName	      "ans"
-      SaveFormat	      "Array"
-      Decimation	      "1"
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1465,7 +1461,7 @@ Model {
   }
   System {
     Name		    "BimanualHD2LfD"
-    Location		    [-7, 0, 726, 927]
+    Location		    [-7, -7, 1448, 928]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1479,13 +1475,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1645"
+    SIDHighWatermark	    "1747"
     Block {
       BlockType		      SubSystem
       Name		      "Adaptive Admittance\nControl (Sensor)"
       SID		      "1540"
       Ports		      [3, 1]
-      Position		      [1475, 781, 1560, 899]
+      Position		      [1480, 781, 1565, 899]
       ZOrder		      596
       BackgroundColor	      "red"
       RequestExecContextInheritance off
@@ -2446,6 +2442,239 @@ Model {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "All Data"
+      SID		      "1702"
+      Ports		      [11]
+      Position		      [2430, 249, 2515, 541]
+      ZOrder		      715
+      BackgroundColor	      "yellow"
+      TreatAsAtomicUnit	      on
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"All Data"
+	Location		[-7, -7, 1448, 928]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "posSlave"
+	  SID			  "1703"
+	  Position		  [50, 83, 80, 97]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "forceSlave"
+	  SID			  "1704"
+	  Position		  [50, 118, 80, 132]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "torqueSlave"
+	  SID			  "1705"
+	  Position		  [50, 153, 80, 167]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "posPatient"
+	  SID			  "1706"
+	  Position		  [50, 188, 80, 202]
+	  ZOrder		  1
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "posPatientFilt"
+	  SID			  "1722"
+	  Position		  [50, 223, 80, 237]
+	  ZOrder		  730
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "velPatientFilt"
+	  SID			  "1723"
+	  Position		  [50, 258, 80, 272]
+	  ZOrder		  729
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "posTherapist"
+	  SID			  "1724"
+	  Position		  [50, 293, 80, 307]
+	  ZOrder		  728
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "forceTherapist"
+	  SID			  "1727"
+	  Position		  [50, 328, 80, 342]
+	  ZOrder		  733
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "posGMR"
+	  SID			  "1728"
+	  Position		  [50, 363, 80, 377]
+	  ZOrder		  732
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "dirCommand"
+	  SID			  "1729"
+	  Position		  [50, 398, 80, 412]
+	  ZOrder		  735
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "spdCommand"
+	  SID			  "1730"
+	  Position		  [50, 433, 80, 447]
+	  ZOrder		  736
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux1"
+	  SID			  "1707"
+	  Ports			  [11, 1]
+	  Position		  [115, 74, 120, 456]
+	  ZOrder		  -5
+	  ShowName		  off
+	  Inputs		  "11"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace"
+	  SID			  "1708"
+	  Ports			  [1]
+	  Position		  [160, 257, 225, 273]
+	  ZOrder		  -7
+	  VariableName		  "AllData"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  SampleTime		  "-1"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Mux1"
+	  SrcPort		  1
+	  DstBlock		  "To Workspace"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "posSlave"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "forceSlave"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "torqueSlave"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "posPatient"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "velPatientFilt"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  6
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "posPatientFilt"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  5
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "posTherapist"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  7
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "spdCommand"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  11
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "forceTherapist"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  8
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "posGMR"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  9
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "dirCommand"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  10
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "Bias Removal"
       SID		      "1338"
       Ports		      [1, 1]
@@ -3061,7 +3290,7 @@ Model {
       Name		      "Bias Removal2"
       SID		      "1414"
       Ports		      [1, 1]
-      Position		      [1840, 599, 1900, 631]
+      Position		      [1840, 579, 1900, 611]
       ZOrder		      9
       Commented		      "on"
       RequestExecContextInheritance off
@@ -3367,7 +3596,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "1632"
-      Position		      [975, 735, 995, 755]
+      Position		      [900, 750, 920, 770]
       ZOrder		      631
       ShowName		      off
       Value		      "0"
@@ -3394,26 +3623,9 @@ Model {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "1633"
-      Position		      [975, 716, 995, 734]
+      Position		      [900, 731, 920, 749]
       ZOrder		      632
       ShowName		      off
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant5"
-      SID		      "773"
-      Position		      [595, 311, 615, 329]
-      ZOrder		      -14
-      ShowName		      off
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant6"
-      SID		      "774"
-      Position		      [595, 330, 615, 350]
-      ZOrder		      -15
-      ShowName		      off
-      Value		      "0"
     }
     Block {
       BlockType		      Scope
@@ -3434,118 +3646,6 @@ Model {
       "erStyles'',''none|none|none|none|none|none'')'),StrPVP('Location','[440 270 1000 690]'),StrPVP('SaveName','Scope"
       "Data1'),StrPVP('SaveName','ScopeData5'))"
       NumInputPorts	      "1"
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Data logging"
-      SID		      "778"
-      Ports		      [3, 0, 1]
-      Position		      [700, 371, 780, 459]
-      ZOrder		      -16
-      TreatAsAtomicUnit	      on
-      RequestExecContextInheritance off
-      Variant		      off
-      System {
-	Name			"Data logging"
-	Location		[713, 0, 1446, 927]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "zSlave"
-	  SID			  "779"
-	  Position		  [50, 58, 80, 72]
-	  ZOrder		  -1
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "qSlave"
-	  SID			  "780"
-	  Position		  [50, 118, 80, 132]
-	  ZOrder		  -2
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "slaveForce"
-	  SID			  "1287"
-	  Position		  [50, 178, 80, 192]
-	  ZOrder		  -3
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  EnablePort
-	  Name			  "Enable"
-	  SID			  "781"
-	  Ports			  []
-	  Position		  [207, 35, 227, 55]
-	  ZOrder		  -4
-	}
-	Block {
-	  BlockType		  Mux
-	  Name			  "Mux1"
-	  SID			  "782"
-	  Ports			  [3, 1]
-	  Position		  [150, 31, 155, 219]
-	  ZOrder		  -5
-	  ShowName		  off
-	  Inputs		  "3"
-	  DisplayOption		  "bar"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace"
-	  SID			  "1289"
-	  Ports			  [1]
-	  Position		  [305, 117, 415, 133]
-	  ZOrder		  -7
-	  VariableName		  "teleopdata"
-	  MaxDataPoints		  "inf"
-	  SaveFormat		  "Structure With Time"
-	  SampleTime		  "-1"
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Mux1"
-	  SrcPort		  1
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "zSlave"
-	  SrcPort		  1
-	  DstBlock		  "Mux1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "qSlave"
-	  SrcPort		  1
-	  DstBlock		  "Mux1"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "slaveForce"
-	  SrcPort		  1
-	  DstBlock		  "Mux1"
-	  DstPort		  3
-	}
-      }
     }
     Block {
       BlockType		      Demux
@@ -3570,11 +3670,18 @@ Model {
       DisplayOption	      "bar"
     }
     Block {
+      BlockType		      Derivative
+      Name		      "Derivative"
+      SID		      "1663"
+      Position		      [1270, 430, 1300, 460]
+      ZOrder		      660
+    }
+    Block {
       BlockType		      Scope
       Name		      "Desired\nAssistance\nVelocity"
       SID		      "1591"
       Ports		      [1]
-      Position		      [1645, 664, 1675, 696]
+      Position		      [1650, 664, 1680, 696]
       ZOrder		      591
       BackgroundColor	      "gray"
       ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData7'),StrPVP('LimitDataPoints','on'),StrPVP('DataForma"
@@ -3586,7 +3693,7 @@ Model {
       Name		      "Desired\nSensor\nVelocity"
       SID		      "1592"
       Ports		      [1]
-      Position		      [1645, 824, 1675, 856]
+      Position		      [1650, 824, 1680, 856]
       ZOrder		      584
       BackgroundColor	      "gray"
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
@@ -3621,6 +3728,16 @@ Model {
       NumInputPorts	      "1"
     }
     Block {
+      BlockType		      ManualSwitch
+      Name		      "Emergency Stop"
+      SID		      "1673"
+      Position		      [930, 439, 1020, 546]
+      ZOrder		      687
+      BackgroundColor	      "red"
+      DropShadow	      on
+      CurrentSetting	      "0"
+    }
+    Block {
       BlockType		      Gain
       Name		      "Force\nFeedback Gain"
       SID		      "1214"
@@ -3639,7 +3756,7 @@ Model {
       SID		      "1206"
       Position		      [1615, 287, 1645, 323]
       ZOrder		      -24
-      BackgroundColor	      "red"
+      BackgroundColor	      "darkGreen"
       DropShadow	      on
       CurrentSetting	      "0"
     }
@@ -3657,21 +3774,34 @@ Model {
     Block {
       BlockType		      From
       Name		      "From1"
-      SID		      "791"
-      Position		      [595, 406, 655, 424]
-      ZOrder		      -26
+      SID		      "1678"
+      Position		      [2290, 60, 2390, 80]
+      ZOrder		      692
       ShowName		      off
-      GotoTag		      "qSlave"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posHandFilt"
     }
     Block {
       BlockType		      From
       Name		      "From10"
       SID		      "1634"
-      Position		      [940, 766, 995, 784]
+      Position		      [865, 781, 920, 799]
       ZOrder		      633
+      BackgroundColor	      "magenta"
       ShowName		      off
       GotoTag		      "I_Data"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From11"
+      SID		      "1648"
+      Position		      [1220, 735, 1295, 755]
+      ZOrder		      646
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posSlave"
     }
     Block {
       BlockType		      From
@@ -3702,59 +3832,130 @@ Model {
     }
     Block {
       BlockType		      From
-      Name		      "From18"
-      SID		      "1308"
-      Position		      [600, 661, 660, 679]
-      ZOrder		      -35
+      Name		      "From15"
+      SID		      "1652"
+      Position		      [1140, 680, 1215, 700]
+      ZOrder		      650
       ShowName		      off
-      GotoTag		      "xPatientFilt"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posGMR"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From16"
+      SID		      "1654"
+      Position		      [1135, 660, 1215, 680]
+      ZOrder		      649
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posZMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From17"
+      SID		      "1657"
+      Position		      [990, 400, 1070, 420]
+      ZOrder		      654
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posKinect"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From18"
+      SID		      "1686"
+      Position		      [2160, 385, 2240, 405]
+      ZOrder		      699
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posXMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From19"
+      SID		      "1662"
+      Position		      [925, 580, 1025, 600]
+      ZOrder		      659
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posHandFilt"
     }
     Block {
       BlockType		      From
       Name		      "From2"
-      SID		      "706"
-      Position		      [600, 506, 660, 524]
-      ZOrder		      -37
+      SID		      "1684"
+      Position		      [2160, 435, 2240, 455]
+      ZOrder		      697
       ShowName		      off
-      GotoTag		      "zSlave"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posZMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From20"
+      SID		      "1665"
+      Position		      [925, 615, 1025, 635]
+      ZOrder		      662
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "velHandFilt"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From21"
+      SID		      "1666"
+      Position		      [865, 650, 950, 670]
+      ZOrder		      663
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceSlave"
     }
     Block {
       BlockType		      From
       Name		      "From22"
-      SID		      "1325"
-      Position		      [980, 506, 1040, 524]
-      ZOrder		      -40
+      SID		      "1680"
+      Position		      [2230, 130, 2315, 150]
+      ZOrder		      694
       ShowName		      off
-      GotoTag		      "xPatient"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceSlave"
     }
     Block {
       BlockType		      From
       Name		      "From23"
-      SID		      "1330"
-      Position		      [600, 586, 660, 604]
-      ZOrder		      -41
+      SID		      "1687"
+      Position		      [2315, 260, 2390, 280]
+      ZOrder		      700
       ShowName		      off
-      GotoTag		      "zMaster"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posSlave"
     }
     Block {
       BlockType		      From
       Name		      "From24"
-      SID		      "1331"
-      Position		      [600, 566, 660, 584]
-      ZOrder		      -42
+      SID		      "1688"
+      Position		      [2305, 285, 2390, 305]
+      ZOrder		      701
       ShowName		      off
-      GotoTag		      "zSlave"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceSlave"
     }
     Block {
       BlockType		      From
       Name		      "From25"
       SID		      "1596"
-      Position		      [1405, 831, 1435, 849]
+      Position		      [1410, 831, 1440, 849]
       ZOrder		      589
       ShowName		      off
       GotoTag		      "m"
@@ -3763,7 +3964,7 @@ Model {
       BlockType		      From
       Name		      "From26"
       SID		      "1597"
-      Position		      [1360, 791, 1435, 809]
+      Position		      [1365, 791, 1440, 809]
       ZOrder		      597
       ShowName		      off
       GotoTag		      "forceSlave"
@@ -3773,30 +3974,54 @@ Model {
       BlockType		      From
       Name		      "From27"
       SID		      "1598"
-      Position		      [1405, 871, 1435, 889]
+      Position		      [1410, 871, 1440, 889]
       ZOrder		      590
       ShowName		      off
       GotoTag		      "c"
     }
     Block {
       BlockType		      From
-      Name		      "From29"
-      SID		      "802"
-      Position		      [595, 376, 655, 394]
-      ZOrder		      -45
+      Name		      "From28"
+      SID		      "1682"
+      Position		      [2310, 165, 2390, 185]
+      ZOrder		      696
       ShowName		      off
-      GotoTag		      "zSlave"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posZMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From29"
+      SID		      "1689"
+      Position		      [2300, 310, 2390, 330]
+      ZOrder		      702
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "torqueSlave"
     }
     Block {
       BlockType		      From
       Name		      "From3"
-      SID		      "707"
-      Position		      [600, 641, 660, 659]
-      ZOrder		      -46
+      SID		      "1685"
+      Position		      [2160, 410, 2240, 430]
+      ZOrder		      698
       ShowName		      off
-      GotoTag		      "xPatient"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posYMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From30"
+      SID		      "1690"
+      Position		      [2310, 335, 2390, 355]
+      ZOrder		      703
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posKinect"
     }
     Block {
       BlockType		      From
@@ -3805,13 +4030,97 @@ Model {
       Position		      [1540, 460, 1645, 480]
       ZOrder		      -47
       ShowName		      off
-      GotoTag		      "SendZeroSlave"
+      GotoTag		      "EmergencyStop"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From32"
+      SID		      "1691"
+      Position		      [2290, 360, 2390, 380]
+      ZOrder		      704
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posHandFilt"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From33"
+      SID		      "1692"
+      Position		      [2290, 385, 2390, 405]
+      ZOrder		      705
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "velHandFilt"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From34"
+      SID		      "1693"
+      Position		      [2315, 460, 2390, 480]
+      ZOrder		      706
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posGMR"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From35"
+      SID		      "1698"
+      Position		      [1500, 285, 1575, 305]
+      ZOrder		      711
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceHD2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From36"
+      SID		      "1700"
+      Position		      [2300, 485, 2390, 505]
+      ZOrder		      713
+      ShowName		      off
+      GotoTag		      "dirCommand"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From37"
+      SID		      "1701"
+      Position		      [2300, 510, 2390, 530]
+      ZOrder		      714
+      ShowName		      off
+      GotoTag		      "spdCommand"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From38"
+      SID		      "1732"
+      Position		      [2160, 745, 2240, 765]
+      ZOrder		      719
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posXMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From39"
+      SID		      "1733"
+      Position		      [2160, 795, 2240, 815]
+      ZOrder		      717
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posZMean"
     }
     Block {
       BlockType		      From
       Name		      "From4"
       SID		      "1360"
-      Position		      [1745, 606, 1805, 624]
+      Position		      [1745, 586, 1805, 604]
       ZOrder		      5
       ShowName		      off
       Commented		      "on"
@@ -3820,42 +4129,162 @@ Model {
     }
     Block {
       BlockType		      From
-      Name		      "From5"
-      SID		      "809"
-      Position		      [1420, 503, 1480, 527]
-      ZOrder		      -53
+      Name		      "From40"
+      SID		      "1734"
+      Position		      [2315, 620, 2390, 640]
+      ZOrder		      720
       ShowName		      off
-      GotoTag		      "tzSlave"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posSlave"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From41"
+      SID		      "1735"
+      Position		      [2305, 645, 2390, 665]
+      ZOrder		      721
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceSlave"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From42"
+      SID		      "1736"
+      Position		      [2300, 670, 2390, 690]
+      ZOrder		      722
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "torqueSlave"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From43"
+      SID		      "1737"
+      Position		      [2160, 770, 2240, 790]
+      ZOrder		      718
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posYMean"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From44"
+      SID		      "1738"
+      Position		      [2310, 695, 2390, 715]
+      ZOrder		      723
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posKinect"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From45"
+      SID		      "1739"
+      Position		      [2290, 720, 2390, 740]
+      ZOrder		      724
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posHandFilt"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From46"
+      SID		      "1740"
+      Position		      [2290, 745, 2390, 765]
+      ZOrder		      725
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "velHandFilt"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From47"
+      SID		      "1741"
+      Position		      [2315, 820, 2390, 840]
+      ZOrder		      726
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posGMR"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From48"
+      SID		      "1742"
+      Position		      [2300, 845, 2390, 865]
+      ZOrder		      728
+      ShowName		      off
+      GotoTag		      "dirCommand"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From49"
+      SID		      "1743"
+      Position		      [2300, 870, 2390, 890]
+      ZOrder		      729
+      ShowName		      off
+      GotoTag		      "spdCommand"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From5"
+      SID		      "1660"
+      Position		      [1315, 505, 1405, 525]
+      ZOrder		      657
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "torqueSlave"
     }
     Block {
       BlockType		      From
       Name		      "From50"
       SID		      "1599"
-      Position		      [1810, 841, 1885, 859]
+      Position		      [1805, 841, 1880, 859]
       ZOrder		      598
       ShowName		      off
       GotoTag		      "velSlave_d"
     }
     Block {
       BlockType		      From
-      Name		      "From6"
-      SID		      "810"
-      Position		      [1510, 195, 1580, 215]
-      ZOrder		      606
+      Name		      "From51"
+      SID		      "1744"
+      Position		      [2315, 795, 2390, 815]
+      ZOrder		      727
       ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceHD2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From6"
+      SID		      "1696"
+      Position		      [1495, 195, 1580, 215]
+      ZOrder		      709
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
       GotoTag		      "forceSlave"
-      TagVisibility	      "global"
     }
     Block {
       BlockType		      From
       Name		      "From7"
-      SID		      "1288"
-      Position		      [590, 435, 660, 455]
-      ZOrder		      -55
+      SID		      "1679"
+      Position		      [2290, 95, 2390, 115]
+      ZOrder		      693
       ShowName		      off
-      GotoTag		      "slaveforce"
-      TagVisibility	      "global"
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "velHandFilt"
     }
     Block {
       BlockType		      From
@@ -3871,17 +4300,140 @@ Model {
     Block {
       BlockType		      From
       Name		      "From9"
-      SID		      "1629"
-      Position		      [1510, 285, 1580, 305]
-      ZOrder		      625
+      SID		      "1699"
+      Position		      [2315, 435, 2390, 455]
+      ZOrder		      712
       ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
       GotoTag		      "forceHD2"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "GMM Data"
+      SID		      "778"
+      Ports		      [4]
+      Position		      [2430, 50, 2515, 195]
+      ZOrder		      677
+      BackgroundColor	      "yellow"
+      TreatAsAtomicUnit	      on
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"GMM Data"
+	Location		[-7, -7, 1448, 928]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "posPatient"
+	  SID			  "779"
+	  Position		  [50, 83, 80, 97]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "velPatient"
+	  SID			  "780"
+	  Position		  [50, 118, 80, 132]
+	  ZOrder		  -2
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "forceSlave"
+	  SID			  "1287"
+	  Position		  [50, 153, 80, 167]
+	  ZOrder		  -3
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "posTherapist"
+	  SID			  "1683"
+	  Position		  [50, 188, 80, 202]
+	  ZOrder		  1
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux1"
+	  SID			  "782"
+	  Ports			  [4, 1]
+	  Position		  [110, 72, 115, 213]
+	  ZOrder		  -5
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace"
+	  SID			  "1289"
+	  Ports			  [1]
+	  Position		  [150, 137, 215, 153]
+	  ZOrder		  -7
+	  VariableName		  "GMMData"
+	  MaxDataPoints		  "inf"
+	  SaveFormat		  "Structure With Time"
+	  SampleTime		  "-1"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Mux1"
+	  SrcPort		  1
+	  DstBlock		  "To Workspace"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "posPatient"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "velPatient"
+	  SrcPort		  1
+	  Points		  [10, 0]
+	  DstBlock		  "Mux1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "forceSlave"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "posTherapist"
+	  SrcPort		  1
+	  DstBlock		  "Mux1"
+	  DstPort		  4
+	}
+      }
     }
     Block {
       BlockType		      ManualSwitch
       Name		      "GMM Ready?"
       SID		      "1635"
-      Position		      [1025, 717, 1055, 753]
+      Position		      [950, 732, 980, 768]
       ZOrder		      630
       BackgroundColor	      "magenta"
       DropShadow	      on
@@ -3893,14 +4445,14 @@ Model {
       Name		      "GMR"
       SID		      "1636"
       Ports		      [3, 1, 1]
-      Position		      [1025, 755, 1175, 885]
+      Position		      [950, 770, 1100, 900]
       ZOrder		      627
       BackgroundColor	      "magenta"
       RequestExecContextInheritance off
       Variant		      off
       System {
 	Name			"GMR"
-	Location		[-7, 0, 726, 927]
+	Location		[-7, -7, 1448, 928]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4171,10 +4723,20 @@ Model {
       }
     }
     Block {
+      BlockType		      Gain
+      Name		      "Gain"
+      SID		      "1655"
+      Position		      [1415, 690, 1455, 720]
+      ZOrder		      652
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
       BlockType		      Goto
       Name		      "Goto"
       SID		      "1600"
-      Position		      [2055, 740, 2135, 760]
+      Position		      [2050, 740, 2130, 760]
       ZOrder		      583
       ShowName		      off
       GotoTag		      "velSlave_d"
@@ -4193,12 +4755,22 @@ Model {
     }
     Block {
       BlockType		      Goto
-      Name		      "Goto12"
-      SID		      "1628"
-      Position		      [2060, 200, 2130, 220]
-      ZOrder		      624
+      Name		      "Goto10"
+      SID		      "1669"
+      Position		      [1110, 616, 1165, 634]
+      ZOrder		      666
+      BackgroundColor	      "magenta"
       ShowName		      off
-      GotoTag		      "forceHD2"
+      GotoTag		      "I_Data"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto11"
+      SID		      "1670"
+      Position		      [1060, 485, 1165, 505]
+      ZOrder		      684
+      ShowName		      off
+      GotoTag		      "EmergencyStop"
     }
     Block {
       BlockType		      Goto
@@ -4215,13 +4787,21 @@ Model {
     Block {
       BlockType		      Goto
       Name		      "Goto14"
-      SID		      "1326"
-      Position		      [1215, 506, 1275, 524]
-      ZOrder		      -66
+      SID		      "1674"
+      Position		      [1370, 830, 1395, 850]
+      ZOrder		      689
       ShowName		      off
-      FontName		      "Arial"
-      FontSize		      12
-      GotoTag		      "xPatientFilt"
+      GotoTag		      "m"
+      TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto15"
+      SID		      "1675"
+      Position		      [1370, 870, 1395, 890]
+      ZOrder		      691
+      ShowName		      off
+      GotoTag		      "c"
       TagVisibility	      "global"
     }
     Block {
@@ -4238,9 +4818,32 @@ Model {
     }
     Block {
       BlockType		      Goto
+      Name		      "Goto17"
+      SID		      "1697"
+      Position		      [2075, 200, 2150, 220]
+      ZOrder		      710
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "forceHD2"
+      TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto2"
+      SID		      "1653"
+      Position		      [1140, 825, 1215, 845]
+      ZOrder		      642
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posGMR"
+    }
+    Block {
+      BlockType		      Goto
       Name		      "Goto20"
       SID		      "1601"
-      Position		      [2045, 820, 2135, 840]
+      Position		      [2040, 820, 2130, 840]
       ZOrder		      593
       ShowName		      off
       GotoTag		      "dirCommand"
@@ -4249,7 +4852,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto21"
       SID		      "1602"
-      Position		      [2045, 855, 2135, 875]
+      Position		      [2040, 855, 2130, 875]
       ZOrder		      594
       ShowName		      off
       GotoTag		      "spdCommand"
@@ -4268,9 +4871,20 @@ Model {
     }
     Block {
       BlockType		      Goto
+      Name		      "Goto4"
+      SID		      "1661"
+      Position		      [1270, 400, 1370, 420]
+      ZOrder		      658
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "posHandFilt"
+    }
+    Block {
+      BlockType		      Goto
       Name		      "Goto5"
       SID		      "1440"
-      Position		      [925, 320, 990, 340]
+      Position		      [930, 320, 995, 340]
       ZOrder		      406
       ShowName		      off
       GotoTag		      "spdNone"
@@ -4279,8 +4893,8 @@ Model {
       BlockType		      Goto
       Name		      "Goto6"
       SID		      "1441"
-      Position		      [1285, 310, 1365, 330]
-      ZOrder		      407
+      Position		      [1350, 310, 1430, 330]
+      ZOrder		      636
       ShowName		      off
       FontName		      "Arial"
       FontSize		      12
@@ -4298,6 +4912,17 @@ Model {
       FontSize		      12
       GotoTag		      "posYMean"
       TagVisibility	      "global"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto8"
+      SID		      "1664"
+      Position		      [1340, 435, 1440, 455]
+      ZOrder		      661
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      12
+      GotoTag		      "velHandFilt"
     }
     Block {
       BlockType		      Goto
@@ -4323,7 +4948,7 @@ Model {
       Variant		      off
       System {
 	Name			"HD2 Dynamics"
-	Location		[713, 0, 1446, 927]
+	Location		[-7, -7, 1448, 928]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4541,7 +5166,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Endonesial I/O"
-	    Location		    [713, 0, 1446, 927]
+	    Location		    [-7, -7, 1448, 928]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -8000,7 +8625,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"HIL Interfacing"
-		Location		[713, 0, 1446, 927]
+		Location		[-7, -7, 1448, 928]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -11280,7 +11905,7 @@ Model {
       SID		      "909"
       Position		      [1615, 507, 1645, 543]
       ZOrder		      -87
-      BackgroundColor	      "red"
+      BackgroundColor	      "darkGreen"
       DropShadow	      on
       CurrentSetting	      "0"
     }
@@ -11288,40 +11913,18 @@ Model {
       BlockType		      Constant
       Name		      "I_vars"
       SID		      "1644"
-      Position		      [965, 804, 995, 836]
+      Position		      [890, 819, 920, 851]
       ZOrder		      628
       Value		      "1:3"
     }
     Block {
-      BlockType		      Gain
-      Name		      "Lock\nGain"
-      SID		      "1626"
-      Position		      [1725, 89, 1785, 121]
-      ZOrder		      622
-      FontName		      "Arial"
-      FontSize		      12
-      Gain		      "-0.1"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      ManualSwitch
-      Name		      "Lock X/Y or\nForce Feedback"
-      SID		      "1223"
-      Position		      [1825, 97, 1855, 133]
-      ZOrder		      26
-      BackgroundColor	      "red"
-      DropShadow	      on
-      CurrentSetting	      "0"
-    }
-    Block {
       BlockType		      SubSystem
-      Name		      "MATLAB Function1"
+      Name		      "Kalman Filter"
       SID		      "1324"
       Ports		      [1, 1]
-      Position		      [1095, 492, 1165, 538]
+      Position		      [1105, 382, 1200, 438]
       ZOrder		      -4
+      BackgroundColor	      "lightBlue"
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -11330,7 +11933,7 @@ Model {
       SFBlockType	      "MATLAB Function"
       Variant		      off
       System {
-	Name			"MATLAB Function1"
+	Name			"Kalman Filter"
 	Location		[227, 345, 838, 789]
 	Open			off
 	ModelBrowserVisibility	off
@@ -11430,12 +12033,27 @@ Model {
       }
     }
     Block {
+      BlockType		      Gain
+      Name		      "Lock\nGain"
+      SID		      "1626"
+      Position		      [1725, 89, 1785, 121]
+      ZOrder		      622
+      FontName		      "Arial"
+      FontSize		      12
+      Gain		      "-0.1"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
       BlockType		      ManualSwitch
-      Name		      "Manual Switch5"
-      SID		      "908"
-      Position		      [700, 312, 730, 348]
-      ZOrder		      -86
-      ShowName		      off
+      Name		      "Lock X/Y or\nForce Feedback"
+      SID		      "1223"
+      Position		      [1825, 97, 1855, 133]
+      ZOrder		      26
+      BackgroundColor	      "darkGreen"
+      DropShadow	      on
+      CurrentSetting	      "0"
     }
     Block {
       BlockType		      ManualSwitch
@@ -11460,12 +12078,12 @@ Model {
     Block {
       BlockType		      Mux
       Name		      "Mux1"
-      SID		      "1307"
-      Ports		      [2, 1]
-      Position		      [705, 641, 710, 679]
-      ZOrder		      -12
+      SID		      "1731"
+      Ports		      [3, 1]
+      Position		      [2275, 381, 2280, 459]
+      ZOrder		      716
       ShowName		      off
-      Inputs		      "2"
+      Inputs		      "3"
       DisplayOption	      "bar"
     }
     Block {
@@ -11473,10 +12091,32 @@ Model {
       Name		      "Mux2"
       SID		      "1603"
       Ports		      [2, 1]
-      Position		      [1835, 731, 1840, 769]
+      Position		      [1830, 731, 1835, 769]
       ZOrder		      602
       ShowName		      off
       Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux3"
+      SID		      "1668"
+      Ports		      [3, 1]
+      Position		      [1065, 571, 1070, 679]
+      ZOrder		      665
+      ShowName		      off
+      Inputs		      "3"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux4"
+      SID		      "1745"
+      Ports		      [3, 1]
+      Position		      [2275, 741, 2280, 819]
+      ZOrder		      730
+      ShowName		      off
+      Inputs		      "3"
       DisplayOption	      "bar"
     }
     Block {
@@ -11495,36 +12135,34 @@ Model {
       Name		      "Mux8"
       SID		      "1282"
       Ports		      [4, 1]
-      Position		      [2020, 173, 2025, 247]
+      Position		      [2030, 173, 2035, 247]
       ZOrder		      613
       ShowName		      off
-      DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux9"
-      SID		      "1332"
-      Ports		      [2, 1]
-      Position		      [705, 566, 710, 604]
-      ZOrder		      -12
-      ShowName		      off
-      Inputs		      "2"
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Constant
       Name		      "O_vars"
       SID		      "1645"
-      Position		      [965, 850, 995, 880]
+      Position		      [890, 865, 920, 895]
       ZOrder		      629
       Value		      "4"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Operation"
+      SID		      "1672"
+      Position		      [865, 505, 895, 535]
+      ZOrder		      686
+      BackgroundColor	      "green"
+      Value		      "0"
     }
     Block {
       BlockType		      Scope
       Name		      "Orientation"
       SID		      "1154"
       Ports		      [1]
-      Position		      [2105, 599, 2135, 631]
+      Position		      [2105, 579, 2135, 611]
       ZOrder		      -105
       Commented		      "on"
       ScopeSpecificationString "C++SS(StrPVP('Location','[118, 69, 773, 498]'),StrPVP('Open','off'),MxPVP('AxesTitles'"
@@ -11535,6 +12173,139 @@ Model {
       "'),StrPVP('BlockParamSampleTime','0'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParam"
       "SampleInput','off'))"
       NumInputPorts	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PID Controller"
+      SID		      "1646"
+      Ports		      [1, 1]
+      Position		      [1415, 637, 1455, 673]
+      ZOrder		      651
+      LibraryVersion	      "1.388"
+      SourceBlock	      "simulink/Continuous/PID Controller"
+      SourceType	      "PID 1dof"
+      ContentPreviewEnabled   off
+      Controller	      "PID"
+      TimeDomain	      "Continuous-time"
+      SampleTime	      "-1"
+      IntegratorMethod	      "Forward Euler"
+      FilterMethod	      "Forward Euler"
+      Form		      "Parallel"
+      UseFilter		      on
+      ControllerParametersSource "internal"
+      P			      "1"
+      I			      "1"
+      D			      "0"
+      N			      "100"
+      InitialConditionSource  "internal"
+      InitialConditionForIntegrator "0"
+      InitialConditionForFilter	"0"
+      ExternalReset	      "none"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      LinearizeAsGain	      on
+      AntiWindupMode	      "none"
+      Kb		      "1"
+      TrackingMode	      off
+      Kt		      "1"
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+      LockScale		      off
+      PParamMin		      "[]"
+      PParamMax		      "[]"
+      PParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      IParamMin		      "[]"
+      IParamMax		      "[]"
+      IParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      DParamMin		      "[]"
+      DParamMax		      "[]"
+      DParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      NParamMin		      "[]"
+      NParamMax		      "[]"
+      NParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      KbParamMin	      "[]"
+      KbParamMax	      "[]"
+      KbParamDataTypeStr      "Inherit: Inherit via internal rule"
+      KtParamMin	      "[]"
+      KtParamMax	      "[]"
+      KtParamDataTypeStr      "Inherit: Inherit via internal rule"
+      POutMin		      "[]"
+      POutMax		      "[]"
+      POutDataTypeStr	      "Inherit: Inherit via internal rule"
+      PGainOutDataTypeStr     "Inherit: Inherit via internal rule"
+      PProdOutDataTypeStr     "Inherit: Inherit via internal rule"
+      IOutMin		      "[]"
+      IOutMax		      "[]"
+      IOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      IGainOutDataTypeStr     "Inherit: Inherit via internal rule"
+      IProdOutDataTypeStr     "Inherit: Inherit via internal rule"
+      DOutMin		      "[]"
+      DOutMax		      "[]"
+      DOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      DGainOutDataTypeStr     "Inherit: Inherit via internal rule"
+      DProdOutDataTypeStr     "Inherit: Inherit via internal rule"
+      NOutMin		      "[]"
+      NOutMax		      "[]"
+      NOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      NGainOutDataTypeStr     "Inherit: Inherit via internal rule"
+      NProdOutDataTypeStr     "Inherit: Inherit via internal rule"
+      KbOutMin		      "[]"
+      KbOutMax		      "[]"
+      KbOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      KtOutMin		      "[]"
+      KtOutMax		      "[]"
+      KtOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      IntegratorOutMin	      "[]"
+      IntegratorOutMax	      "[]"
+      IntegratorOutDataTypeStr "Inherit: Inherit via internal rule"
+      FilterOutMin	      "[]"
+      FilterOutMax	      "[]"
+      FilterOutDataTypeStr    "Inherit: Inherit via internal rule"
+      SumOutMin		      "[]"
+      SumOutMax		      "[]"
+      SumOutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SumI1OutMin	      "[]"
+      SumI1OutMax	      "[]"
+      SumI1OutDataTypeStr     "Inherit: Inherit via internal rule"
+      SumI2OutMin	      "[]"
+      SumI2OutMax	      "[]"
+      SumI2OutDataTypeStr     "Inherit: Inherit via internal rule"
+      SumI3OutMin	      "[]"
+      SumI3OutMax	      "[]"
+      SumI3OutDataTypeStr     "Inherit: Inherit via internal rule"
+      SumDOutMin	      "[]"
+      SumDOutMax	      "[]"
+      SumDOutDataTypeStr      "Inherit: Inherit via internal rule"
+      SumAccumDataTypeStr     "Inherit: Inherit via internal rule"
+      SumI1AccumDataTypeStr   "Inherit: Inherit via internal rule"
+      SumI2AccumDataTypeStr   "Inherit: Inherit via internal rule"
+      SumI3AccumDataTypeStr   "Inherit: Inherit via internal rule"
+      SumDAccumDataTypeStr    "Inherit: Inherit via internal rule"
+      SaturationOutMin	      "[]"
+      SaturationOutMax	      "[]"
+      SaturationOutDataTypeStr "Inherit: Same as input"
+      IntegratorContinuousStateAttributes "''"
+      IntegratorStateMustResolveToSignalObject off
+      IntegratorRTWStateStorageClass "Auto"
+      FilterContinuousStateAttributes "''"
+      FilterStateMustResolveToSignalObject off
+      FilterRTWStateStorageClass "Auto"
+      DifferentiatorICPrevScaledInput "0"
+      DifferentiatorOutMin    "[]"
+      DifferentiatorOutMax    "[]"
+      DifferentiatorOutDataTypeStr "Inherit: Inherit via internal rule"
+    }
+    Block {
+      BlockType		      ManualSwitch
+      Name		      "PID Error Tracking\nor Gain"
+      SID		      "1656"
+      Position		      [1535, 662, 1565, 698]
+      ZOrder		      653
+      BackgroundColor	      "red"
+      DropShadow	      on
     }
     Block {
       BlockType		      SubSystem
@@ -11590,7 +12361,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "3D Filter"
-	    Location		    [840, 0, 1680, 1010]
+	    Location		    [-7, -7, 1448, 928]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11618,16 +12389,16 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [220, 57, 255, 93]
 	      ZOrder		      492
-	      LibraryVersion	      "1.345"
+	      LibraryVersion	      "1.351"
 	      SourceBlock	      "dsparch4/Analog\nFilter Design"
 	      SourceType	      "Analog Filter Design"
-	      method		      Butterworth
-	      filttype		      Lowpass
-	      N			      3
-	      Wlo		      30
-	      Whi		      80
-	      Rp		      2
-	      Rs		      40
+	      method		      "Butterworth"
+	      filttype		      "Lowpass"
+	      N			      "3"
+	      Wlo		      "30"
+	      Whi		      "80"
+	      Rp		      "2"
+	      Rs		      "40"
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -11636,16 +12407,16 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [220, 127, 255, 163]
 	      ZOrder		      493
-	      LibraryVersion	      "1.345"
+	      LibraryVersion	      "1.351"
 	      SourceBlock	      "dsparch4/Analog\nFilter Design"
 	      SourceType	      "Analog Filter Design"
-	      method		      Butterworth
-	      filttype		      Lowpass
-	      N			      3
-	      Wlo		      30
-	      Whi		      80
-	      Rp		      2
-	      Rs		      40
+	      method		      "Butterworth"
+	      filttype		      "Lowpass"
+	      N			      "3"
+	      Wlo		      "30"
+	      Whi		      "80"
+	      Rp		      "2"
+	      Rs		      "40"
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -11654,16 +12425,16 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [220, 197, 255, 233]
 	      ZOrder		      494
-	      LibraryVersion	      "1.345"
+	      LibraryVersion	      "1.351"
 	      SourceBlock	      "dsparch4/Analog\nFilter Design"
 	      SourceType	      "Analog Filter Design"
-	      method		      Butterworth
-	      filttype		      Lowpass
-	      N			      3
-	      Wlo		      30
-	      Whi		      80
-	      Rp		      2
-	      Rs		      40
+	      method		      "Butterworth"
+	      filttype		      "Lowpass"
+	      N			      "3"
+	      Wlo		      "30"
+	      Whi		      "80"
+	      Rp		      "2"
+	      Rs		      "40"
 	    }
 	    Block {
 	      BlockType		      Demux
@@ -12249,7 +13020,7 @@ Model {
       Name		      "Remove Orientation Jump"
       SID		      "1379"
       Ports		      [1, 1]
-      Position		      [1935, 594, 2070, 636]
+      Position		      [1935, 574, 2070, 616]
       ZOrder		      7
       Commented		      "on"
       RequestExecContextInheritance off
@@ -12946,37 +13717,127 @@ Model {
     }
     Block {
       BlockType		      Reshape
-      Name		      "Reshape5"
+      Name		      "Reshape3"
+      SID		      "1647"
+      Ports		      [1, 1]
+      Position		      [1285, 308, 1315, 332]
+      ZOrder		      635
+      OutputDimensionality    "Column vector (2-D)"
+    }
+    Block {
+      BlockType		      Reshape
+      Name		      "Reshape4"
       SID		      "1604"
       Ports		      [1, 1]
-      Position		      [1645, 748, 1675, 772]
+      Position		      [1650, 748, 1680, 772]
       ZOrder		      592
       OutputDimensionality    "Column vector (2-D)"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "1747"
+      Ports		      [11]
+      Position		      [2430, 612, 2515, 898]
+      ZOrder		      732
+      BackgroundColor	      "gray"
+      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData1'))"
+      NumInputPorts	      "11"
     }
     Block {
       BlockType		      Selector
       Name		      "Selector"
       SID		      "1605"
       Ports		      [1, 1]
-      Position		      [1880, 731, 1920, 769]
+      Position		      [1875, 731, 1915, 769]
       ZOrder		      601
+      ShowName		      off
       InputPortWidth	      "6"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[1 2 6]"
       OutputSizes	      "1"
     }
     Block {
+      BlockType		      Selector
+      Name		      "Selector1"
+      SID		      "1658"
+      Ports		      [1, 1]
+      Position		      [1440, 496, 1480, 534]
+      ZOrder		      655
+      InputPortWidth	      "3"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[3]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector2"
+      SID		      "1667"
+      Ports		      [1, 1]
+      Position		      [985, 641, 1025, 679]
+      ZOrder		      664
+      ShowName		      off
+      InputPortWidth	      "3"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[3]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector3"
+      SID		      "1681"
+      Ports		      [1, 1]
+      Position		      [2350, 121, 2390, 159]
+      ZOrder		      695
+      ShowName		      off
+      InputPortWidth	      "3"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[3]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Stop"
+      SID		      "1671"
+      Position		      [865, 450, 895, 480]
+      ZOrder		      685
+      BackgroundColor	      "red"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum"
+      SID		      "1650"
+      Ports		      [2, 1]
+      Position		      [1320, 670, 1340, 690]
+      ZOrder		      648
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|+-"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
       BlockType		      Sum
       Name		      "Sum1"
       SID		      "1606"
       Ports		      [2, 1]
-      Position		      [1590, 750, 1610, 770]
+      Position		      [1595, 750, 1615, 770]
       ZOrder		      582
       ShowName		      off
       IconShape		      "round"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      ManualSwitch
+      Name		      "Teleoperation\nor GMR"
+      SID		      "1649"
+      Position		      [1250, 662, 1280, 698]
+      ZOrder		      647
+      BackgroundColor	      "red"
+      DropShadow	      on
     }
     Block {
       BlockType		      Terminator
@@ -13011,32 +13872,10 @@ Model {
       ShowName		      off
     }
     Block {
-      BlockType		      ToFile
-      Name		      "To File4"
-      SID		      "1329"
-      Ports		      [1]
-      Position		      [1095, 559, 1200, 591]
-      ZOrder		      -134
-      Filename		      "xPa.mat"
-      MatrixName	      "logs"
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace"
-      SID		      "1216"
-      Ports		      [1]
-      Position		      [1215, 537, 1325, 553]
-      ZOrder		      -7
-      VariableName	      "masterforcedata"
-      MaxDataPoints	      "inf"
-      SaveFormat	      "Structure With Time"
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Constant
       Name		      "Unused\nAxes"
       SID		      "1607"
-      Position		      [1720, 685, 1750, 705]
+      Position		      [1725, 685, 1755, 705]
       ZOrder		      603
       Value		      "[0;0;0]"
     }
@@ -13045,7 +13884,7 @@ Model {
       Name		      "Velocity Decomposition"
       SID		      "1608"
       Ports		      [1, 2]
-      Position		      [1925, 814, 2005, 881]
+      Position		      [1920, 814, 2000, 881]
       ZOrder		      600
       BackgroundColor	      "red"
       RequestExecContextInheritance off
@@ -13256,7 +14095,7 @@ Model {
       Name		      "Velpocity Saturation"
       SID		      "1613"
       Ports		      [1, 1]
-      Position		      [1960, 731, 2015, 769]
+      Position		      [1955, 731, 2010, 769]
       ZOrder		      599
       BackgroundColor	      "red"
       RequestExecContextInheritance off
@@ -13424,11 +14263,11 @@ Model {
     }
     Block {
       BlockType		      ManualSwitch
-      Name		      "Weight Top Only"
+      Name		      "Weight Bottom Only"
       SID		      "1285"
       Position		      [1870, 182, 1900, 218]
       ZOrder		      609
-      BackgroundColor	      "red"
+      BackgroundColor	      "darkGreen"
       DropShadow	      on
     }
     Block {
@@ -13437,7 +14276,7 @@ Model {
       SID		      "1618"
       Position		      [1925, 87, 1955, 123]
       ZOrder		      604
-      BackgroundColor	      "red"
+      BackgroundColor	      "darkGreen"
       DropShadow	      on
       CurrentSetting	      "0"
     }
@@ -13488,6 +14327,24 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
+      BlockType		      Constant
+      Name		      "c_def"
+      SID		      "1676"
+      Position		      [1310, 870, 1340, 890]
+      ZOrder		      690
+      BackgroundColor	      "orange"
+      Value		      "[0.1;0.1;0.1]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "m_def"
+      SID		      "1677"
+      Position		      [1310, 830, 1340, 850]
+      ZOrder		      688
+      BackgroundColor	      "orange"
+      Value		      "[0.01;0.01;0.01]"
+    }
+    Block {
       BlockType		      Scope
       Name		      "new1"
       SID		      "1487"
@@ -13519,101 +14376,10 @@ Model {
       BlockType		      InitialCondition
       Name		      "vel_IC"
       SID		      "1617"
-      Position		      [1715, 738, 1755, 782]
+      Position		      [1720, 738, 1760, 782]
       ZOrder		      595
       BackgroundColor	      "orange"
       Value		      "[0; 0; 0]"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "xPatient"
-      SID		      "705"
-      Ports		      [1]
-      Position		      [705, 499, 735, 531]
-      ZOrder		      -159
-      ScopeSpecificationString "C++SS(StrPVP('Location','[969, 56, 1913, 1031]'),StrPVP('Open','off'),MxPVP('AxesTitle"
-      "s',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]''"
-      ",''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'"
-      "',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|"
-      "none|none|none'')'),StrPVP('TimeRange','4'),StrPVP('YMin','-250'),StrPVP('YMax','250'),StrPVP('DataFormat','Stru"
-      "ctureWithTime'),StrPVP('BlockParamSampleTime','0'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPV"
-      "P('BlockParamSampleInput','off'))"
-      NumInputPorts	      "1"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "xPatientPlot"
-      SID		      "1300"
-      Ports		      [1]
-      Position		      [755, 644, 785, 676]
-      ZOrder		      -3
-      ScopeSpecificationString "C++SS(StrPVP('Location','[-208, 274, 736, 1249]'),StrPVP('Open','off'),MxPVP('AxesTitl"
-      "es',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]'"
-      "',''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-      "'',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none"
-      "|none|none|none'')'),StrPVP('YMin','-290'),StrPVP('YMax','200'),StrPVP('SaveName','ScopeData16'),StrPVP('DataFor"
-      "mat','StructureWithTime'),StrPVP('BlockParamSampleTime','0'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation',"
-      "'1'),StrPVP('BlockParamSampleInput','off'))"
-      NumInputPorts	      "1"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "z comparison"
-      SID		      "1333"
-      Ports		      [1]
-      Position		      [755, 569, 785, 601]
-      ZOrder		      -3
-      ScopeSpecificationString "C++SS(StrPVP('Location','[969, 56, 1913, 1031]'),StrPVP('Open','off'),MxPVP('AxesTitle"
-      "s',24,'struct(''axes1'',''%<SignalLabel>'')'),MxPVP('ScopeGraphics',28,'struct(''FigureColor'',''[0.5 0.5 0.5]''"
-      ",''AxesColor'',''[0 0 0]'',''AxesTickColor'',''[1 1 1]'',''LineColors'',''[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]'"
-      "',''LineStyles'',''-|-|-|-|-|-'',''LineWidths'',''[0.5 0.5 0.5 0.5 0.5 0.5]'',''MarkerStyles'',''none|none|none|"
-      "none|none|none'')'),StrPVP('YMin','-290'),StrPVP('YMax','200'),StrPVP('SaveName','ScopeData17'),StrPVP('DataForm"
-      "at','StructureWithTime'),StrPVP('BlockParamSampleTime','0'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','"
-      "1'),StrPVP('BlockParamSampleInput','off'))"
-      NumInputPorts	      "1"
-    }
-    Line {
-      ZOrder		      13
-      SrcBlock		      "From2"
-      SrcPort		      1
-      DstBlock		      "xPatient"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      14
-      SrcBlock		      "From3"
-      SrcPort		      1
-      DstBlock		      "Mux1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      20
-      SrcBlock		      "From1"
-      SrcPort		      1
-      DstBlock		      "Data logging"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      21
-      SrcBlock		      "Constant6"
-      SrcPort		      1
-      DstBlock		      "Manual Switch5"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      22
-      SrcBlock		      "Constant5"
-      SrcPort		      1
-      DstBlock		      "Manual Switch5"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      23
-      SrcBlock		      "Manual Switch5"
-      SrcPort		      1
-      Points		      [0, 24]
-      DstBlock		      "Data logging"
-      DstPort		      enable
     }
     Line {
       ZOrder		      43
@@ -13637,8 +14403,8 @@ Model {
       DstPort		      4
     }
     Line {
-      ZOrder		      46
-      SrcBlock		      "From5"
+      ZOrder		      534
+      SrcBlock		      "Selector1"
       SrcPort		      1
       DstBlock		      "amplification gain2"
       DstPort		      1
@@ -13684,13 +14450,6 @@ Model {
       SrcBlock		      "Demux6"
       SrcPort		      3
       DstBlock		      "Goto9"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      65
-      SrcBlock		      "From29"
-      SrcPort		      1
-      DstBlock		      "Data logging"
       DstPort		      1
     }
     Line {
@@ -13744,80 +14503,28 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      170
-      SrcBlock		      "From7"
+      ZOrder		      533
+      SrcBlock		      "From17"
       SrcPort		      1
-      DstBlock		      "Data logging"
-      DstPort		      3
-    }
-    Line {
-      ZOrder		      183
-      SrcBlock		      "Mux1"
-      SrcPort		      1
-      DstBlock		      "xPatientPlot"
+      DstBlock		      "Kalman Filter"
       DstPort		      1
     }
     Line {
-      ZOrder		      184
-      SrcBlock		      "From18"
+      ZOrder		      536
+      SrcBlock		      "Kalman Filter"
       SrcPort		      1
-      DstBlock		      "Mux1"
-      DstPort		      2
-    }
-    Line {
-      ZOrder		      185
-      SrcBlock		      "From22"
-      SrcPort		      1
-      Points		      [20, 0]
+      Points		      [28, 0]
       Branch {
-	ZOrder			186
-	DstBlock		"MATLAB Function1"
+	ZOrder			538
+	Points			[0, 35]
+	DstBlock		"Derivative"
 	DstPort			1
       }
       Branch {
-	ZOrder			187
-	Points			[0, 60]
-	DstBlock		"To File4"
+	ZOrder			537
+	DstBlock		"Goto4"
 	DstPort			1
       }
-    }
-    Line {
-      ZOrder		      188
-      SrcBlock		      "MATLAB Function1"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	ZOrder			189
-	DstBlock		"Goto14"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			190
-	Points			[0, 30]
-	DstBlock		"To Workspace"
-	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      191
-      SrcBlock		      "From24"
-      SrcPort		      1
-      DstBlock		      "Mux9"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      192
-      SrcBlock		      "Mux9"
-      SrcPort		      1
-      DstBlock		      "z comparison"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      193
-      SrcBlock		      "From23"
-      SrcPort		      1
-      DstBlock		      "Mux9"
-      DstPort		      2
     }
     Line {
       ZOrder		      228
@@ -13855,7 +14562,7 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      306
+      ZOrder		      569
       SrcBlock		      "From6"
       SrcPort		      1
       DstBlock		      "Force\nFeedback Gain"
@@ -13989,10 +14696,10 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      469
+      ZOrder		      511
       SrcBlock		      "QUARC UDP Communication"
       SrcPort		      5
-      DstBlock		      "Goto6"
+      DstBlock		      "Reshape3"
       DstPort		      1
     }
     Line {
@@ -14028,7 +14735,7 @@ Model {
     }
     Line {
       ZOrder		      281
-      SrcBlock		      "Reshape5"
+      SrcBlock		      "Reshape4"
       SrcPort		      1
       DstBlock		      "vel_IC"
       DstPort		      1
@@ -14037,7 +14744,7 @@ Model {
       ZOrder		      282
       SrcBlock		      "Sum1"
       SrcPort		      1
-      DstBlock		      "Reshape5"
+      DstBlock		      "Reshape4"
       DstPort		      1
     }
     Line {
@@ -14071,8 +14778,10 @@ Model {
       DstPort		      3
     }
     Line {
-      ZOrder		      293
-      Points		      [1560, 680; 40, 0]
+      ZOrder		      526
+      SrcBlock		      "PID Error Tracking\nor Gain"
+      SrcPort		      1
+      Points		      [35, 0]
       Branch {
 	ZOrder			292
 	DstBlock		"Sum1"
@@ -14130,7 +14839,7 @@ Model {
       ZOrder		      300
       SrcBlock		      "Unused\nAxes"
       SrcPort		      1
-      Points		      [38, 0; 0, 45]
+      Points		      [31, 0; 0, 45]
       DstBlock		      "Mux2"
       DstPort		      1
     }
@@ -14145,14 +14854,14 @@ Model {
       ZOrder		      309
       SrcBlock		      "Constant2"
       SrcPort		      1
-      DstBlock		      "Weight Top Only"
+      DstBlock		      "Weight Bottom Only"
       DstPort		      1
     }
     Line {
       ZOrder		      331
       SrcBlock		      "X/Y Force or\nFree Motion"
       SrcPort		      1
-      Points		      [25, 0; 0, 75]
+      Points		      [30, 0; 0, 75; 0, 0]
       Branch {
 	ZOrder			366
 	Points			[0, 40]
@@ -14178,13 +14887,13 @@ Model {
       Branch {
 	ZOrder			329
 	Points			[0, -30]
-	DstBlock		"Weight Top Only"
+	DstBlock		"Weight Bottom Only"
 	DstPort			2
       }
     }
     Line {
       ZOrder		      360
-      SrcBlock		      "Weight Top Only"
+      SrcBlock		      "Weight Bottom Only"
       SrcPort		      1
       DstBlock		      "Mux8"
       DstPort		      2
@@ -14205,15 +14914,15 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      376
+      ZOrder		      570
       SrcBlock		      "Mux8"
       SrcPort		      1
-      DstBlock		      "Goto12"
+      DstBlock		      "Goto17"
       DstPort		      1
     }
     Line {
-      ZOrder		      377
-      SrcBlock		      "From9"
+      ZOrder		      571
+      SrcBlock		      "From35"
       SrcPort		      1
       DstBlock		      "Force Off/On"
       DstPort		      1
@@ -14260,6 +14969,402 @@ Model {
       SrcPort		      1
       DstBlock		      "GMR"
       DstPort		      1
+    }
+    Line {
+      ZOrder		      512
+      SrcBlock		      "Reshape3"
+      SrcPort		      1
+      DstBlock		      "Goto6"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      513
+      SrcBlock		      "GMR"
+      SrcPort		      1
+      DstBlock		      "Goto2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      521
+      SrcBlock		      "From15"
+      SrcPort		      1
+      DstBlock		      "Teleoperation\nor GMR"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      522
+      SrcBlock		      "From16"
+      SrcPort		      1
+      DstBlock		      "Teleoperation\nor GMR"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      523
+      SrcBlock		      "Teleoperation\nor GMR"
+      SrcPort		      1
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      529
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      Points		      [28, 0]
+      Branch {
+	ZOrder			532
+	Points			[0, -25]
+	DstBlock		"PID Controller"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			531
+	Points			[0, 25]
+	DstBlock		"Gain"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      525
+      SrcBlock		      "From11"
+      SrcPort		      1
+      Points		      [30, 0]
+      DstBlock		      "Sum"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      527
+      SrcBlock		      "Gain"
+      SrcPort		      1
+      Points		      [33, 0; 0, -15]
+      DstBlock		      "PID Error Tracking\nor Gain"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      528
+      SrcBlock		      "PID Controller"
+      SrcPort		      1
+      Points		      [33, 0; 0, 15]
+      DstBlock		      "PID Error Tracking\nor Gain"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      535
+      SrcBlock		      "From5"
+      SrcPort		      1
+      DstBlock		      "Selector1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      539
+      SrcBlock		      "Derivative"
+      SrcPort		      1
+      DstBlock		      "Goto8"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      540
+      SrcBlock		      "From21"
+      SrcPort		      1
+      DstBlock		      "Selector2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      541
+      SrcBlock		      "From20"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      542
+      SrcBlock		      "Selector2"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      543
+      SrcBlock		      "From19"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      1
+    }
+    Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
+      ZOrder		      544
+      SrcBlock		      "Mux3"
+      SrcPort		      1
+      DstBlock		      "Goto10"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      559
+      SrcBlock		      "Operation"
+      SrcPort		      1
+      DstBlock		      "Emergency Stop"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      560
+      SrcBlock		      "Stop"
+      SrcPort		      1
+      DstBlock		      "Emergency Stop"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      561
+      SrcBlock		      "Emergency Stop"
+      SrcPort		      1
+      DstBlock		      "Goto11"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      562
+      SrcBlock		      "m_def"
+      SrcPort		      1
+      DstBlock		      "Goto14"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      563
+      SrcBlock		      "c_def"
+      SrcPort		      1
+      DstBlock		      "Goto15"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      564
+      SrcBlock		      "From22"
+      SrcPort		      1
+      DstBlock		      "Selector3"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      565
+      SrcBlock		      "Selector3"
+      SrcPort		      1
+      DstBlock		      "GMM Data"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      566
+      SrcBlock		      "From7"
+      SrcPort		      1
+      DstBlock		      "GMM Data"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      567
+      SrcBlock		      "From1"
+      SrcPort		      1
+      DstBlock		      "GMM Data"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      568
+      SrcBlock		      "From28"
+      SrcPort		      1
+      DstBlock		      "GMM Data"
+      DstPort		      4
+    }
+    Line {
+      ZOrder		      572
+      SrcBlock		      "From18"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      573
+      SrcBlock		      "From3"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      574
+      SrcBlock		      "From2"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      575
+      SrcBlock		      "From23"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      576
+      SrcBlock		      "From24"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      577
+      SrcBlock		      "From29"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      578
+      SrcBlock		      "From30"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      4
+    }
+    Line {
+      ZOrder		      579
+      SrcBlock		      "From32"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      5
+    }
+    Line {
+      ZOrder		      580
+      SrcBlock		      "From33"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      6
+    }
+    Line {
+      ZOrder		      581
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      7
+    }
+    Line {
+      ZOrder		      582
+      SrcBlock		      "From34"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      9
+    }
+    Line {
+      ZOrder		      583
+      SrcBlock		      "From9"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      8
+    }
+    Line {
+      ZOrder		      584
+      SrcBlock		      "From37"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      11
+    }
+    Line {
+      ZOrder		      585
+      SrcBlock		      "From36"
+      SrcPort		      1
+      DstBlock		      "All Data"
+      DstPort		      10
+    }
+    Line {
+      ZOrder		      586
+      SrcBlock		      "From38"
+      SrcPort		      1
+      DstBlock		      "Mux4"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      587
+      SrcBlock		      "From43"
+      SrcPort		      1
+      DstBlock		      "Mux4"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      588
+      SrcBlock		      "From39"
+      SrcPort		      1
+      DstBlock		      "Mux4"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      608
+      SrcBlock		      "Mux4"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      7
+    }
+    Line {
+      ZOrder		      605
+      SrcBlock		      "From44"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      4
+    }
+    Line {
+      ZOrder		      603
+      SrcBlock		      "From46"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      6
+    }
+    Line {
+      ZOrder		      606
+      SrcBlock		      "From41"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      611
+      SrcBlock		      "From40"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      607
+      SrcBlock		      "From42"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      3
+    }
+    Line {
+      ZOrder		      604
+      SrcBlock		      "From45"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      5
+    }
+    Line {
+      ZOrder		      601
+      SrcBlock		      "From51"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      8
+    }
+    Line {
+      ZOrder		      610
+      SrcBlock		      "From49"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      11
+    }
+    Line {
+      ZOrder		      609
+      SrcBlock		      "From48"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      10
+    }
+    Line {
+      ZOrder		      602
+      SrcBlock		      "From47"
+      SrcPort		      1
+      DstBlock		      "Scope"
+      DstPort		      9
     }
   }
 }
@@ -14726,6 +15831,7 @@ Stateflow {
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 3 0 0]
     viewObj		    2
+    visible		    1
     subviewS {
     }
     ssIdHighWaterMark	    18
@@ -15323,12 +16429,15 @@ Stateflow {
   chart {
     id			    31
     machine		    1
-    name		    "MATLAB Function1"
+    name		    "Kalman Filter"
     windowPosition	    [501 341 213 385]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 32 0 0]
     viewObj		    31
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -15431,7 +16540,7 @@ Stateflow {
     }
     midPoint		    [23.5747 24.9468]
     chart		    31
-    dataLimits		    [23.575 23.575 14.625 34.575]
+    dataLimits		    [21.175 25.975 14.625 42.575]
     subviewer		    31
     drawStyle		    SMART
     slide {
@@ -15444,7 +16553,7 @@ Stateflow {
   instance {
     id			    37
     machine		    1
-    name		    "MATLAB Function1"
+    name		    "Kalman Filter"
     chart		    31
   }
   chart {
