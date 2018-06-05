@@ -32,7 +32,14 @@ char ip_remote_scp[1024];
 short port_local_ss;
 short port_remote_ss;
 short num_joints;
-char joint_names_scp[1024];
+char joint_indices_scp[1024];
+
+// Data structures for reading and labelling joint data
+const short len_data_ss = 3;
+double *dataUDP;
+
+// Forward declare custom functions
+int setupUDP(const char* configFile, char** envp);
 
 /// <summary>
 /// Entry point for the application
@@ -44,10 +51,16 @@ char joint_names_scp[1024];
 /// <returns>status</returns>
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	setupUDP(configFileUDP, 0);
+	int setup_error = setupUDP(configFileUDP, 0);
+	if (!setup_error)
+	{
+		return setup_error;
+	}
 
     CSkeletonBasics application;
-    application.Run(hInstance, nCmdShow);
+    int run_error = application.Run(hInstance, nCmdShow);
+
+	return run_error;
 }
 
 /// <summary>
@@ -74,12 +87,12 @@ int setupUDP(const char* configFile, char** envp)
 
 	num_joints = (short)config.pInt("num_joints");
 	
-	tmp = config.pString("name_joints").c_str();
-	strcpy_s(joint_names_scp, tmp.c_str());
+	tmp = config.pString("ind_joints").c_str();
+	strcpy_s(joint_indices_scp, tmp.c_str());
 
 	printf("\nLocal IP address: %s:%d", ip_local_scp, port_local_ss);
 	printf("\nRemote IP address: %s:%d", ip_remote_scp, port_remote_ss);
-	printf("\nSupplied markers: %s", joint_names_scp);
+	printf("\nSupplied joints: %s", joint_indices_scp);
 
 	comm_error = transmission.init_transmission(ip_local_scp, port_local_ss,
 		ip_remote_scp, port_remote_ss);
@@ -90,6 +103,16 @@ int setupUDP(const char* configFile, char** envp)
 		system("Pause");
 		return -1;
 	}
+
+	dataUDP = (double *)malloc(num_joints * len_data_ss * sizeof(double));
+	if (dataUDP == NULL)
+	{
+		return -1;
+	}
+	for (int i = 0; i < num_joints * len_data_ss; i++) {
+		dataUDP[i] = 0.0;
+	}
+	return 0;
 }
 
 /// <summary>
@@ -175,6 +198,10 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
 		// Show window
 		ShowWindow(hWndApp, nCmdShow);
 	}
+	else
+	{
+		CreateFirstConnected();
+	}
 
     const int eventCount = 1;
     HANDLE hEvents[eventCount];
@@ -216,7 +243,11 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
 		}
     }
 
-    return static_cast<int>(msg.wParam);
+	if (enableDraw)
+	{
+		return static_cast<int>(msg.wParam);
+	}
+	return comm_error;
 }
 
 /// <summary>
@@ -429,20 +460,37 @@ void CSkeletonBasics::ProcessSkeleton()
 				DrawSkeleton(skeletonFrame.SkeletonData[i], width, height);
 			}
 
-			// Data structures for reading and labelling joint data
-			const short len_data_ss = 3;
-			double *data = (double *)malloc(num_joints * len_data_ss * sizeof(double));
-			if (data == NULL) exit(1);
-			for (int i = 0; i < num_joints * len_data_ss; i++) {
-				data[i] = 0.0;
-			}
-
-			int i = 0;
-
-			char marker_names_tmp[1024];
-			char *marker_names_tok;
+			// Buffers for parsing desired joint indices
+			char joint_indices_tmp[1024];
+			char *joint_indices_tok;
 			const char *delim = " ,";
 			char *next_token;
+
+			// Send position data if identified joint matches specified one
+			strcpy_s(joint_indices_tmp, joint_indices_scp);
+			joint_indices_tok = strtok_s(joint_indices_tmp, delim, &next_token); // Get first token
+			int ind_joint = 0;
+			while (joint_indices_tok != NULL)
+			{
+				dataUDP[ind_joint * len_data_ss] =
+					skeletonFrame.SkeletonData[i].SkeletonPositions[atoi(joint_indices_tok)].x;
+				dataUDP[ind_joint * len_data_ss + 1] =
+					skeletonFrame.SkeletonData[i].SkeletonPositions[atoi(joint_indices_tok)].y;
+				dataUDP[ind_joint * len_data_ss + 2] =
+					skeletonFrame.SkeletonData[i].SkeletonPositions[atoi(joint_indices_tok)].z;
+				
+				ind_joint++;
+				joint_indices_tok = strtok_s(NULL, delim, &next_token); // Get next token
+			}
+
+			comm_error = transmission.send(dataUDP, num_joints * len_data_ss);
+
+			if (comm_error) {
+				printf("\nTransmission send failed with error code %d!", comm_error);
+				printf("\n");
+				system("Pause");
+				break;
+			}
         }
         else if (NUI_SKELETON_POSITION_ONLY == trackingState)
         {
