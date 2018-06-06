@@ -1,0 +1,21 @@
+﻿Build started 6/6/2018 3:07:10 PM.
+     1>Project "C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\UDPClientHub\UDPClientHub.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GaitUDPComm.vcxproj, KinestheticUDPComm.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\Quanser\QUARC\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UDPClientHub.cpp
+         UDPClientHub.cpp
+     1>c:\users\admin\desktop\jason 2016-2018\bimanual_teleop_lfd\udpclienthub\udpclienthub\udpclienthub.cpp(269): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\users\admin\desktop\jason 2016-2018\bimanual_teleop_lfd\udpclienthub\udpclienthub\udpclienthub.cpp(396): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\users\admin\desktop\jason 2016-2018\bimanual_teleop_lfd\udpclienthub\udpclienthub\udpclienthub.cpp(405): warning C4800: 'BOOL' : forcing value to bool 'true' or 'false' (performance warning)
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\Debug\UDPClientHub.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\Quanser\QUARC\lib\windows" Ws2_32.lib quanser_communications.lib quanser_runtime.lib quanser_common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\Debug\UDPClientHub.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\Debug\UDPClientHub.lib" /MACHINE:X86 Debug\data_transmission.obj
+         Debug\UDPClientHub.obj
+         Debug\UDP.obj
+     1>data_transmission.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         UDPClientHub.vcxproj -> C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\Debug\UDPClientHub.exe
+     1>Done Building Project "C:\Users\admin\Desktop\Jason 2016-2018\bimanual_teleop_lfd\UDPClientHub\UDPClientHub\UDPClientHub.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.37
