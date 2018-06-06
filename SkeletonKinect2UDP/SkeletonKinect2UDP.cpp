@@ -13,12 +13,14 @@
 #include "config.h"
 #include <conio.h>
 #include <stdio.h>
+#define _tWinMain wWinMain
+#define WM_KEYDOWN 
 
 static const float g_JointThickness = 3.0f;
 static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
 
-static const bool enableDraw = false;
+static const bool enableDraw = true;
 
 const char* configFileUDP = "SkeletonKinect2UDP.cfg";
 
@@ -48,17 +50,26 @@ int setupUDP(const char* configFile, char** envp);
 /// <param name="hPrevInstance">always 0</param>
 /// <param name="lpCmdLine">command line arguments</param>
 /// <param name="nCmdShow">whether to display minimized, maximized, or normally</param>
-/// <returns>status</returns>
-int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
+/// <returns>status</returns> 
+//int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
+//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
+int main(int argc, TCHAR *argv[], char ** envp)
 {
-	int setup_error = setupUDP(configFileUDP, 0);
-	if (!setup_error)
+	
+	HINSTANCE hInstance = GetModuleHandle(0);
+	//GetCommandLineA();
+	GetCommandLineW();
+	//GetStartupInfoA(STARTUPINFOA*);
+	//GetStartupInfoW(STARTUPINFOW*);
+	int setup_error = setupUDP(configFileUDP, envp);
+	if (setup_error)
 	{
 		return setup_error;
 	}
 
     CSkeletonBasics application;
-    int run_error = application.Run(hInstance, nCmdShow);
+    int run_error = application.Run(hInstance, SW_SHOWDEFAULT);
+	//int run_error = application.Run(hInstance, nCmdShow);
 
 	return run_error;
 }
@@ -209,9 +220,10 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
     // Main message loop
 	bool WndQuit = false;
 	printf("\nPreparing to stream to %s:%d... \nPress any key to quit.", ip_remote_scp, port_remote_ss);
-    
-	while (!WndQuit && !_kbhit && !comm_error)
+     
+	while (!WndQuit && !comm_error)
     {
+		
         hEvents[0] = m_hNextSkeletonEvent;
 
         // Check to see if we have either a message (by passing in QS_ALLEVENTS)
