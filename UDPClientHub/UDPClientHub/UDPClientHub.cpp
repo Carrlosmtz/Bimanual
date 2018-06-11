@@ -160,9 +160,9 @@ qthread_attr_t SND_thread_attributes;
 //////////////////////////////////////////////////////////////
 unsigned short TeleOpPortRCV = 18000;
 unsigned short TeleOpPortSND = 18001;
+char* sIPAddrLocal = "142.244.62.8"; // IP Address of local machine (client)
 char* sIPAddrDest = "142.244.62.60"; /* IP Address of CEWin machine:
 	142.244.62.59 for Robot 1, 142.244.62.60 for Robot 0 */
-char* sIPAddrLocal = "142.244.62.101"; // IP Address of local machine (client)
 
 
 // Miscellaneous synchronization diagnosis variables
@@ -176,7 +176,7 @@ _int64 CounterStart = 0;
 ////////////////////////////////////////////
 // Robot kinematics parameters
 const int NbActuatedAxes = 3;
-const double initPos[3] = { 0.0000, 524.2110, -32.5507 };
+const double initPos[3] = { 100.0000, -524.2110, -32.5507 };
 
 struct SendData // Data to send from Simulink PC to robot control PC
 {
@@ -189,7 +189,6 @@ struct RecvData // Data received from robot control PC by Simulink PC
 	double posCur[NbActuatedAxes];
 	double F[NbActuatedAxes];
 	double T[NbActuatedAxes];
-	double posKinect[NbActuatedAxes];
 };
 
 
@@ -233,7 +232,7 @@ int nCountTimeOutSND = 0;
 // Data transmission class object
 data_transmission transmission;
 // IP addresses and ports
-char* ip_local_scp = "142.244.62.101";
+char* ip_local_scp = "142.244.62.8";
 short port_local_ss = 12001;
 char* ip_remote_scp = "142.244.62.89";
 short port_remote_ss = 12000;
@@ -496,11 +495,10 @@ DWORD ThreadRCV(LPVOID param)
 		RCVBuff.posCur[i] = initPos[i];
 		RCVBuff.F[i] = 0.0;
 		RCVBuff.T[i] = 0.0;
-		RCVBuff.posKinect[i] = 0.0;
 	}
 	// Initialize Kinect data buffers
 	char KinectData[1024];
-	double KinectBuff[3] = { 0, 0, 0 };
+	double KinectBuff[3] = { 0.0, 0.0, 0.0 };
 	// Kinect transmission error flag
 	int comm_error = 0;
 
@@ -557,11 +555,11 @@ DWORD ThreadRCV(LPVOID param)
 			{
 				KinectBuff[i] = tmp[i];
 			}
-			// For debugging
-			cout << '\r' << "Kinect data: x = " <<
-				KinectBuff[0] << ", y = " <<
-				KinectBuff[1] << ", z = " <<
-				KinectBuff[2];
+			//// For debugging
+			//cout << '\r' << "Kinect data: x = " <<
+			//	KinectBuff[0] << ", y = " <<
+			//	KinectBuff[1] << ", z = " <<
+			//	KinectBuff[2];
 		}
 
 
